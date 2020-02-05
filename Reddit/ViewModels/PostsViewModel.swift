@@ -27,16 +27,16 @@ class PostsViewModel {
         self.delegate = delegate
     }
     
-    private func decodeToPostData(data: Data){
-        if let p = jsonParser.decodeToPostData(d: data){
+    private func decodeToPostData(data: Data?){
+        guard let d = data else { return }
+        if let p = jsonParser.decodeToPostData(d: d){
             posts += p
         }
     }
     
     func fetchPosts(){
         client.fetch(redditUrlString: "https://api.reddit.com/r/\(subreddit)?limit=\(fetchLimit)") { [weak self] (data) in
-            guard let d = data else { return }
-            self?.decodeToPostData(data: d)
+            self?.decodeToPostData(data: data)
         }
     }
     
@@ -44,8 +44,7 @@ class PostsViewModel {
         guard let name = posts.last?.name else { return }
         let redditUrlString = "https://api.reddit.com/r/\(subreddit)?&after=\(name)&limit=\(fetchLimit)"
         client.fetch(redditUrlString: redditUrlString) { [weak self] (data) in
-            guard let d = data else { return }
-            self?.decodeToPostData(data: d)
+            self?.decodeToPostData(data: data)
         }
     }
     
