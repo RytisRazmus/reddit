@@ -34,7 +34,6 @@ class ErrorView: UIView {
     }
     
     private func setupLayout(){
-        
         let padding: CGFloat = 8
         let imageHeight: CGFloat = 30
         

@@ -17,6 +17,8 @@ class PostTableViewCell: UITableViewCell {
     private var postImageHeightConstraint = NSLayoutConstraint()
     private let padding: CGFloat = 8
     private let noImageHeight: CGFloat = 0
+    private let errorImage = UIImage(named: "error")
+    private lazy var errorView  = ErrorView(errorMessage: "", errorImage: errorImage)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -55,6 +57,7 @@ class PostTableViewCell: UITableViewCell {
         titleLabel.text = post.title
         authorLabel.text = post.getAuthor()
         selfTextLabel.text = post.selftext
+        
         guard let urlString = post.preview?.images.first?.source.url else { postImageHeightConstraint.constant = noImageHeight; return }
         setImageHeight(post: post)
         postImage.loadImageWithUrl(urlString.htmlDecoded) { [weak self] (error) in
@@ -64,7 +67,6 @@ class PostTableViewCell: UITableViewCell {
                 }
             }
         }
-       
     }
     
     private func setImageHeight(post: PostData){
@@ -77,17 +79,10 @@ class PostTableViewCell: UITableViewCell {
             return
         }
         postImageHeightConstraint.constant = imgHeight
-        
     }
     
-    private let errorImage = UIImage(named: "error")
-    
-    private lazy var errorView  = ErrorView(errorMessage: "", errorImage: errorImage)
-    
     func errorThrown() {
-        
         errorView.alpha = 1
-        
     }
     
     required init?(coder: NSCoder) {

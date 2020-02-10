@@ -10,19 +10,10 @@ import UIKit
 
 class PopularViewController: UIViewController, DataSubscription {
     
-    func errorThrown(error: NetworkError) {
-        print(error.description)
-    }
-    
-    func dataUpdated() {
-        tableView.reloadData()
-    }
-    
     private let cellId = "1"
     private let client = APIClient()
     private lazy var viewModel = PostsViewModel(delegate: self, fetcher: client)
     private let errorImage = UIImage(named: "error")
-    
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -41,6 +32,14 @@ class PopularViewController: UIViewController, DataSubscription {
         view.addSubview(tableView)
         tableView.fillContainer(layoutGuide: view.safeAreaLayoutGuide)
         viewModel.fetchPosts()
+    }
+    
+    func errorThrown(error: NetworkError) {
+        print(error.description)
+    }
+    
+    func dataUpdated() {
+        tableView.reloadData()
     }
     
 }

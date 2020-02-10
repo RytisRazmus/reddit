@@ -11,10 +11,11 @@ import Foundation
 class PostsViewModel {
     
     private let jsonParser = JSONParser()
-    private let subreddit = "images"
+    private let subreddit = "popular"
     private let fetchLimit = 20
     private let fetcher: DataFetcher
     private weak var delegate: DataSubscription?
+    
     var posts = [PostData]() {
         didSet {
             DispatchQueue.main.async { [ weak self ] in
