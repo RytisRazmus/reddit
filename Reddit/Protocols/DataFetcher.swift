@@ -1,5 +1,5 @@
 //
-//  DataSubscription.swift
+//  DataFetcher.swift
 //  Reddit
 //
 //  Created by rytis razmus on 05/02/2020.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol DataSubscription: AnyObject {
-    func dataUpdated()
-    func errorThrown(error: NetworkError)
+protocol DataFetcher{
+    func fetch(urlString: String, completion: @escaping (Data?, NetworkError?) -> ())
 }

@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ImageLoader: UIImageView {
+class ImageLoadingView: UIImageView {
 
     private let fetcher = ImageFetcher()
+    
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
@@ -22,11 +23,14 @@ class ImageLoader: UIImageView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func loadImageWithUrl(_ urlString: String?, completion: (() -> ())?) {
+    func loadImageWithUrl(_ urlString: String?, completion: @escaping (NetworkError?) -> () ) {
         image = nil
-        fetcher.loadImageWithUrl(urlString) { [weak self] (img) in
-            self?.image = img
-            completion?()
+        guard let urlString = urlString else { return completion(.badURL) }
+        fetcher.fetch(urlString: urlString) { [weak self] (fetchedImage, error) in
+            if let fetchedImage = fetchedImage {
+                self?.image = fetchedImage
+            }
+            completion(error)
         }
     }
 

@@ -9,11 +9,12 @@
 import UIKit
 
 class PostData: Codable {
+    
     let title: String
     let subreddit: String
     let ups: Int
     let score: Int
-    let author: String
+    private let author: String
     let name: String
     let numComments: Int
     let createdUtc: Double
@@ -37,17 +38,8 @@ class PostData: Codable {
         case imageScaledHeight
     }
     
-    struct Preview: Codable {
-        let images: [Images]
-        struct Images: Codable {
-            let source: Source
-            class Source: Codable {
-                let url: String
-                var height: CGFloat
-                let width: CGFloat
-            }
-        }
+    func getAuthor() -> String {
+        return "u/" + author
     }
-   
+    
 }
-

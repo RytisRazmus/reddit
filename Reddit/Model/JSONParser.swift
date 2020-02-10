@@ -10,10 +10,10 @@ import UIKit
 
 struct JSONParser {
     
-    private func decodeData<T : Decodable>(d: Data) -> T? {
+    private func decodeData<T : Decodable>(data: Data) -> T? {
         let decoder = JSONDecoder()
         do {
-            let decoded = try decoder.decode(T.self, from: d)
+            let decoded = try decoder.decode(T.self, from: data)
             return decoded
         } catch let err {
             print(err)
@@ -21,10 +21,10 @@ struct JSONParser {
         }
     }
     
-    func decodeToPostData(d: Data) -> [PostData]? {
-        if let decoded: Post = decodeData(d: d){
-            let mapedPostData = decoded.data.children.map({$0.data})
-            return mapedPostData
+    func decodeToPostData(data: Data) -> [PostData]? {
+        if let decoded: Post = decodeData(data: data){
+            let postsData = decoded.data.children.map({$0.data})
+            return postsData
         }
         return nil
     }

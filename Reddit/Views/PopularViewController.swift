@@ -10,12 +10,19 @@ import UIKit
 
 class PopularViewController: UIViewController, DataSubscription {
     
+    func errorThrown(error: NetworkError) {
+        print(error.description)
+    }
+    
     func dataUpdated() {
         tableView.reloadData()
     }
-    // should I move this variable to ViewModel?
+    
     private let cellId = "1"
-    private lazy var viewModel = PostsViewModel(delegate: self)
+    private let client = APIClient()
+    private lazy var viewModel = PostsViewModel(delegate: self, fetcher: client)
+    private let errorImage = UIImage(named: "error")
+    
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -30,11 +37,14 @@ class PopularViewController: UIViewController, DataSubscription {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         view.addSubview(tableView)
         tableView.fillContainer(layoutGuide: view.safeAreaLayoutGuide)
         viewModel.fetchPosts()
     }
+    
 }
+
 extension PopularViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.posts.count
