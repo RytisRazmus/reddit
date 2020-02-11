@@ -14,7 +14,7 @@ class PostData: Codable {
     let subreddit: String
     let ups: Int
     let score: Int
-    private let author: String
+    let author: String
     let name: String
     let numComments: Int
     let createdUtc: Double
@@ -36,10 +36,6 @@ class PostData: Codable {
         case selftext
         case subImage
         case imageScaledHeight
-    }
-    
-    func getAuthor() -> String {
-        return "u/" + author
     }
     
 }

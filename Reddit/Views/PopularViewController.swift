@@ -13,7 +13,8 @@ class PopularViewController: UIViewController, DataSubscription {
     private let cellId = "1"
     private let client = APIClient()
     private lazy var viewModel = PostsViewModel(delegate: self, fetcher: client)
-    private let errorImage = UIImage(named: "error")
+    private let fetchMoreIndex = 5
+    
     
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -35,6 +36,7 @@ class PopularViewController: UIViewController, DataSubscription {
     }
     
     func errorThrown(error: NetworkError) {
+        // handle error
         print(error.description)
     }
     
@@ -59,7 +61,7 @@ extension PopularViewController: UITableViewDataSource, UITableViewDelegate {
         return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if viewModel.posts.count - 5 == indexPath.row {
+        if viewModel.posts.count - fetchMoreIndex == indexPath.row {
             viewModel.fetchMore()
         }
     }

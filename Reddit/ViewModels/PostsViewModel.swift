@@ -32,6 +32,7 @@ class PostsViewModel {
     private func decodeToPostData(data: Data?) -> NetworkError? {
         guard let data = data else { return .badData }
         if let postsData = jsonParser.decodeToPostData(data: data){
+            postsData.forEach{$0.imageScaledHeight = $0.preview?.images.first?.calculateImageHeight()}
             posts += postsData
             return nil
         }

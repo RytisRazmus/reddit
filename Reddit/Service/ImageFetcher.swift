@@ -32,7 +32,7 @@ class ImageFetcher {
             DispatchQueue.main.async(execute: {
                 if let unwrappedData = data, let imageToCache = UIImage(data: unwrappedData) {
                     ImageCache.imageCache.setObject(imageToCache, forKey: urlString as AnyObject, cost: unwrappedData.count)
-                    completion(unwrappedData, nil)
+                    completion(unwrappedData, error)
                 }
             })
         }

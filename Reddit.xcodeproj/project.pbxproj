@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		571ED8F123F2FB4700715976 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571ED8F023F2FB4700715976 /* UnitConverter.swift */; };
 		57284F1823EAFCD2005AC782 /* DataSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F1723EAFCD2005AC782 /* DataSubscription.swift */; };
 		57284F1C23EB3213005AC782 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F1B23EB3213005AC782 /* DataFetcher.swift */; };
 		57284F1E23EB4F4B005AC782 /* PostLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F1D23EB4F4B005AC782 /* PostLabel.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		571ED8F023F2FB4700715976 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
 		57284F1723EAFCD2005AC782 /* DataSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSubscription.swift; sourceTree = "<group>"; };
 		57284F1B23EB3213005AC782 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		57284F1D23EB4F4B005AC782 /* PostLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLabel.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				57284F2323EB5FA9005AC782 /* Source.swift */,
 				57284F2523EB5FEE005AC782 /* Children.swift */,
 				5771CE6723F1C80B00D01CA5 /* NetworkError.swift */,
+				571ED8F023F2FB4700715976 /* UnitConverter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				57284F2423EB5FA9005AC782 /* Source.swift in Sources */,
 				57FE3DC323E99E69002CEF8B /* PopularViewController.swift in Sources */,
 				57FE3DBF23E99E69002CEF8B /* AppDelegate.swift in Sources */,
+				571ED8F123F2FB4700715976 /* UnitConverter.swift in Sources */,
 				57FE3DC123E99E69002CEF8B /* SceneDelegate.swift in Sources */,
 				57FE3DF223E99E9F002CEF8B /* APIClient.swift in Sources */,
 				57FE3E0023E9A090002CEF8B /* PostsViewModel.swift in Sources */,
