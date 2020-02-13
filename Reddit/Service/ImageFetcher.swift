@@ -33,7 +33,9 @@ class ImageFetcher {
                 if let unwrappedData = data, let imageToCache = UIImage(data: unwrappedData) {
                     ImageCache.imageCache.setObject(imageToCache, forKey: urlString as AnyObject, cost: unwrappedData.count)
                     completion(unwrappedData, error)
+                    return
                 }
+                completion(nil, error)
             })
         }
     }

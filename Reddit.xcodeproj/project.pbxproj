@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		571ED8F123F2FB4700715976 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571ED8F023F2FB4700715976 /* UnitConverter.swift */; };
+		571ED8F323F3285A00715976 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 571ED8F223F3285A00715976 /* UIColor.swift */; };
 		57284F1823EAFCD2005AC782 /* DataSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F1723EAFCD2005AC782 /* DataSubscription.swift */; };
 		57284F1C23EB3213005AC782 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F1B23EB3213005AC782 /* DataFetcher.swift */; };
 		57284F1E23EB4F4B005AC782 /* PostLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F1D23EB4F4B005AC782 /* PostLabel.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		571ED8F023F2FB4700715976 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
+		571ED8F223F3285A00715976 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		57284F1723EAFCD2005AC782 /* DataSubscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSubscription.swift; sourceTree = "<group>"; };
 		57284F1B23EB3213005AC782 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		57284F1D23EB4F4B005AC782 /* PostLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLabel.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 			children = (
 				57FE3E0223E9A116002CEF8B /* UIView.swift */,
 				57FE3E0E23E9B318002CEF8B /* String.swift */,
+				571ED8F223F3285A00715976 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				57FE3E0023E9A090002CEF8B /* PostsViewModel.swift in Sources */,
 				57284F2223EB5F92005AC782 /* Image.swift in Sources */,
 				57FE3E0523E9A30A002CEF8B /* JSONParser.swift in Sources */,
+				571ED8F323F3285A00715976 /* UIColor.swift in Sources */,
 				57FE3E0F23E9B318002CEF8B /* String.swift in Sources */,
 				57FE3E0923E9AF66002CEF8B /* ImageLoadingView.swift in Sources */,
 				57284F2023EB5F7B005AC782 /* Preview.swift in Sources */,

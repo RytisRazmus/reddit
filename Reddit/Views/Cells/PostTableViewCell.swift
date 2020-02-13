@@ -13,78 +13,114 @@ class PostTableViewCell: UITableViewCell {
     private let titleLabel = PostLabel(font: UIFont.boldSystemFont(ofSize: 20), alignment: .left)
     private let authorLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .left)
     private let selfTextLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .left)
-    private let subNameLabel = PostLabel(font: UIFont.boldSystemFont(ofSize: 16), alignment: .left)
+    private let subNameLabel = PostLabel(font: UIFont.boldSystemFont(ofSize: 14), alignment: .left)
     private let upvotesLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .center)
     private let commentsLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .center)
+    private let timeLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .left)
     private let postImage = ImageLoadingView()
     private var postImageHeightConstraint = NSLayoutConstraint()
-    private let padding: CGFloat = 8
     private let noImageHeight: CGFloat = 0
     private let errorImage = UIImage(named: "error")
     private lazy var errorView  = ErrorView(errorMessage: "", errorImage: errorImage)
+    
+    let containerView: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = .white
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        return containerView
+    }()
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.selectionStyle = .none
+        setAppearance()
+        let padding: CGFloat = 8
         
-        addSubview(subNameLabel)
-        subNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: padding).isActive = true
-        subNameLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
-        subNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
+        addSubview(containerView)
+        containerView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        containerView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        containerView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        containerView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding).isActive = true
         
-        addSubview(authorLabel)
+        containerView.addSubview(subNameLabel)
+        subNameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding).isActive = true
+        subNameLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding).isActive = true
+        subNameLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding).isActive = true
+        
+        let authorMaxRightConstant: CGFloat = 70
+        containerView.addSubview(authorLabel)
         authorLabel.topAnchor.constraint(equalTo: subNameLabel.bottomAnchor, constant: padding).isActive = true
-        authorLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
-        authorLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
+        authorLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding).isActive = true
+        authorLabel.rightAnchor.constraint(lessThanOrEqualTo: containerView.rightAnchor, constant: -authorMaxRightConstant).isActive = true
         
-        addSubview(titleLabel)
+        addSubview(timeLabel)
+        timeLabel.leftAnchor.constraint(equalTo: authorLabel.rightAnchor, constant: 0).isActive = true
+        timeLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
+        timeLabel.topAnchor.constraint(equalTo: authorLabel.topAnchor).isActive = true
+        
+        containerView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: padding).isActive = true
-        titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
-        titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
+        titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding).isActive = true
+        titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding).isActive = true
         
-        addSubview(postImage)
+        containerView.addSubview(postImage)
         postImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding).isActive = true
         postImageHeightConstraint = postImage.heightAnchor.constraint(equalToConstant: noImageHeight)
         postImageHeightConstraint.isActive = true
         postImageHeightConstraint.priority = UILayoutPriority(rawValue: 999)
-        postImage.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        postImage.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        postImage.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        postImage.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         
-        addSubview(selfTextLabel)
+        containerView.addSubview(selfTextLabel)
         selfTextLabel.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: padding).isActive = true
-        selfTextLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
-        selfTextLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
+        selfTextLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding).isActive = true
+        selfTextLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding).isActive = true
         
-        addSubview(upvotesLabel)
+        let bottomPadding: CGFloat = 12
+        
+        containerView.addSubview(upvotesLabel)
         upvotesLabel.topAnchor.constraint(equalTo: selfTextLabel.bottomAnchor, constant: padding).isActive = true
-        upvotesLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: padding).isActive = true
-        upvotesLabel.rightAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        upvotesLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding).isActive = true
+        upvotesLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding).isActive = true
+        upvotesLabel.rightAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        upvotesLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -bottomPadding).isActive = true
         
-        addSubview(commentsLabel)
+        containerView.addSubview(commentsLabel)
         commentsLabel.topAnchor.constraint(equalTo: selfTextLabel.bottomAnchor, constant: padding).isActive = true
-        commentsLabel.leftAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        commentsLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -padding).isActive = true
-        commentsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -padding).isActive = true
+        commentsLabel.leftAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        commentsLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding).isActive = true
+        commentsLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -bottomPadding).isActive = true
         
-        addSubview(errorView)
+        containerView.addSubview(errorView)
         errorView.centerXAnchor.constraint(equalTo: postImage.centerXAnchor).isActive = true
         errorView.centerYAnchor.constraint(equalTo: postImage.centerYAnchor).isActive = true
+    
+    }
+    
+    private func setAppearance(){
+        backgroundColor = UIColor(hexString: "#f5f0ec")
+        self.selectionStyle = .none
+        
+        let postInfoColor = UIColor.gray//UIColor(hexString: "#8c8987")
+        subNameLabel.textColor = postInfoColor
+        authorLabel.textColor = postInfoColor
+        timeLabel.textColor = postInfoColor
     }
     
     func setData(post: PostData){
         errorView.alpha = 0
         titleLabel.text = post.title
-        authorLabel.text = "u/" + post.author
+        authorLabel.text = "u/" + post.author + " • "
         selfTextLabel.text = post.selftext
         subNameLabel.text = "r/" + post.subreddit
+        timeLabel.text = UnitConverter.convertTime(post.createdUtc)
         upvotesLabel.text = UnitConverter.convertToKs(post.score) + " ups"
         commentsLabel.text = UnitConverter.convertToKs(post.numComments) + " comments"
         
         guard let urlString = post.preview?.images.first?.source.url else { postImageHeightConstraint.constant = noImageHeight; return }
+        
         setImageHeight(post: post)
+        
         postImage.loadImageWithUrl(urlString.htmlDecoded) { [weak self] (error) in
             if let error = error {
                 DispatchQueue.main.async {
@@ -108,4 +144,5 @@ class PostTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }

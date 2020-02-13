@@ -15,7 +15,6 @@ class PopularViewController: UIViewController, DataSubscription {
     private lazy var viewModel = PostsViewModel(delegate: self, fetcher: client)
     private let fetchMoreIndex = 5
     
-    
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -23,6 +22,7 @@ class PopularViewController: UIViewController, DataSubscription {
         table.estimatedRowHeight = 200
         table.rowHeight = UITableView.automaticDimension
         table.dataSource = self
+        table.separatorStyle = .none
         table.delegate = self
         return table
     }()

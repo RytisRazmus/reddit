@@ -20,23 +20,31 @@ struct UnitConverter {
         return "\(ks).\(deci)k"
     }
     
-    static func numberWithColons(_ number: Int) -> String {
-        if number == 0 {
-            return "0"
-        }
-        var n = number
-        var nrWithColons = ""
-        var i = 0
-        while n != 0 {
-            let mod = n % 10
-            n = (n - mod) / 10
-            if i > 2 {
-                nrWithColons.insert(",", at: nrWithColons.startIndex)
-                i = 0
+    static func convertTime(_ timeCreated: Double) -> String{
+        let timestamp = NSDate().timeIntervalSince1970
+        let timeAgo = timestamp - timeCreated
+        let minutes = Int(timeAgo / 60)
+        let hours = Int(timeAgo / 3600)
+        let days = Int(timeAgo / (3600 * 24))
+        let months = Int(timeAgo / (24 * 3600 * 30))
+        let years = Int(timeAgo / (24 * 3600 * 30 * 12))
+        if timeAgo < 60 {
+            return "\(Int(timeAgo))s ago"
+        } else if minutes < 60 {
+            return "\(minutes)min ago"
+        } else if hours < 24 {
+            return "\(hours)h ago"
+        } else if days < 30 {
+            return "\(days)d ago"
+        } else if months < 12{
+            if months > 1 {
+                return "\(months) months ago"
+            } else {
+                return "\(months) month ago"
             }
-            i += 1
-            nrWithColons.insert(Character(String(mod)), at: nrWithColons.startIndex)
+        } else {
+            return "\(years)y ago"
         }
-        return nrWithColons
     }
+    
 }
