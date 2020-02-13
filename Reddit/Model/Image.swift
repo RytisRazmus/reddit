@@ -20,3 +20,4 @@ extension Image {
         return newHeight
     }
 }
+

@@ -69,6 +69,7 @@ class PostsViewModel {
         }
         return .badData
     }
+    
     // reddit does not have any node to identify if a post contains a video
     // they have a node is_video but it's always false
     // you have to look into the json and figure out the media type

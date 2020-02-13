@@ -9,6 +9,7 @@
 import Foundation
 
 struct Preview: Codable {
+    
     let images: [Image]
     let redditVideo: RedditVideo?
     

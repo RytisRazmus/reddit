@@ -11,3 +11,4 @@ import Foundation
 struct Variants: Codable{
     let mp4: Mp4?
 }
+

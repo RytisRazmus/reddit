@@ -9,7 +9,6 @@
 import Foundation
 
 struct RedditVideo: Codable{
-    
     let fallbackUrl: String?
     let dashUrl: String?
     let hlsUrl: String?
@@ -27,5 +26,4 @@ struct RedditVideo: Codable{
         case height
         case width
     }
-    
 }

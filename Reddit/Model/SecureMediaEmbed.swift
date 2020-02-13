@@ -18,5 +18,4 @@ struct SecureMediaEmbed: Codable {
         case width
         case mediaDomainUrl = "media_domain_url"
     }
-    
 }

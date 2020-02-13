@@ -14,5 +14,4 @@ struct Media: Codable {
     enum CodingKeys: String, CodingKey {
         case redditVideo = "reddit_video"
     }
-    
 }
