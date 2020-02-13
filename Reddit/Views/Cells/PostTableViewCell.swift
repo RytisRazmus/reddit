@@ -17,7 +17,7 @@ class PostTableViewCell: UITableViewCell {
     private let upvotesLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .center)
     private let commentsLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .center)
     private let timeLabel = PostLabel(font: UIFont.systemFont(ofSize: 14), alignment: .left)
-    private let postImage = ImageLoadingView()
+    private let imageVideoView = ImageVideoView()
     private var postImageHeightConstraint = NSLayoutConstraint()
     private let noImageHeight: CGFloat = 0
     private let errorImage = UIImage(named: "error")
@@ -64,16 +64,16 @@ class PostTableViewCell: UITableViewCell {
         titleLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding).isActive = true
         titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding).isActive = true
         
-        containerView.addSubview(postImage)
-        postImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding).isActive = true
-        postImageHeightConstraint = postImage.heightAnchor.constraint(equalToConstant: noImageHeight)
+        containerView.addSubview(imageVideoView)
+        imageVideoView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: padding).isActive = true
+        postImageHeightConstraint = imageVideoView.heightAnchor.constraint(equalToConstant: noImageHeight)
         postImageHeightConstraint.isActive = true
         postImageHeightConstraint.priority = UILayoutPriority(rawValue: 999)
-        postImage.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
-        postImage.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
+        imageVideoView.leftAnchor.constraint(equalTo: containerView.leftAnchor).isActive = true
+        imageVideoView.rightAnchor.constraint(equalTo: containerView.rightAnchor).isActive = true
         
         containerView.addSubview(selfTextLabel)
-        selfTextLabel.topAnchor.constraint(equalTo: postImage.bottomAnchor, constant: padding).isActive = true
+        selfTextLabel.topAnchor.constraint(equalTo: imageVideoView.bottomAnchor, constant: padding).isActive = true
         selfTextLabel.leftAnchor.constraint(equalTo: containerView.leftAnchor, constant: padding).isActive = true
         selfTextLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -padding).isActive = true
         
@@ -92,8 +92,8 @@ class PostTableViewCell: UITableViewCell {
         commentsLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -bottomPadding).isActive = true
         
         containerView.addSubview(errorView)
-        errorView.centerXAnchor.constraint(equalTo: postImage.centerXAnchor).isActive = true
-        errorView.centerYAnchor.constraint(equalTo: postImage.centerYAnchor).isActive = true
+        errorView.centerXAnchor.constraint(equalTo: imageVideoView.centerXAnchor).isActive = true
+        errorView.centerYAnchor.constraint(equalTo: imageVideoView.centerYAnchor).isActive = true
     
     }
     
@@ -118,16 +118,14 @@ class PostTableViewCell: UITableViewCell {
         commentsLabel.text = UnitConverter.convertToKs(post.numComments) + " comments"
         
         guard let urlString = post.preview?.images.first?.source.url else { postImageHeightConstraint.constant = noImageHeight; return }
-        
         setImageHeight(post: post)
         
-        postImage.loadImageWithUrl(urlString.htmlDecoded) { [weak self] (error) in
-            if let error = error {
-                DispatchQueue.main.async {
-                    self?.errorThrown(error: error)
-                }
-            }
+        if let videoUrl = post.videoUrl {
+            imageVideoView.setVideoView(urlString: videoUrl)
+        } else {
+            imageVideoView.setImageView(urlString: urlString)
         }
+        
     }
     
     private func setImageHeight(post: PostData){
