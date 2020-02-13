@@ -29,16 +29,6 @@ class PostsViewModel {
         self.fetcher = fetcher
     }
     
-    private func decodeToPostData(data: Data?) -> NetworkError? {
-        guard let data = data else { return .badData }
-        if let postsData = jsonParser.decodeToPostData(data: data){
-            postsData.forEach{$0.imageScaledHeight = $0.preview?.images.first?.calculateImageHeight()}
-            posts += postsData
-            return nil
-        }
-        return .badData
-    }
-    
     func fetchPosts(){
         fetcher.fetch(urlString: "https://api.reddit.com/r/\(subreddit)?limit=\(fetchLimit)") { [ weak self ] (data, error)  in
             self?.handleFetchResult(data: data, error: error)
@@ -65,6 +55,16 @@ class PostsViewModel {
         DispatchQueue.main.async { [weak self] in
             self?.delegate?.errorThrown(error: error)
         }
+    }
+    
+    private func decodeToPostData(data: Data?) -> NetworkError? {
+        guard let data = data else { return .badData }
+        if let postsData = jsonParser.decodeToPostData(data: data){
+            postsData.forEach{$0.imageScaledHeight = $0.preview?.images.first?.calculateImageHeight()}
+            posts += postsData
+            return nil
+        }
+        return .badData
     }
     
 }
