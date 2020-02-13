@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DataFetcher{
+protocol DataFetcher: AnyObject{
     
     func fetch(urlString: String, completion: @escaping (Data?, NetworkError?) -> ())
     

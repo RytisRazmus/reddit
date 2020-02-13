@@ -14,6 +14,7 @@ class PostLabel: UILabel {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         numberOfLines = 0
+        textColor = .black
         self.font = font
         self.textAlignment = alignment
     }

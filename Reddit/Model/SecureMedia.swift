@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct SecureMedia: Codable {
+    let redditVideo: RedditVideo?
+    
+    enum CodingKeys: String, CodingKey {
+        case redditVideo = "reddit_video"
+    }
+    
+}

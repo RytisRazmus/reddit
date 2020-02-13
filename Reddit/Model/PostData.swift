@@ -22,6 +22,11 @@ class PostData: Codable {
     let selftext: String
     var subImage: String?
     var imageScaledHeight: CGFloat?
+    let secureMediaEmbed: SecureMediaEmbed?
+    let secureMedia: SecureMedia?
+    let media: Media?
+    let url: String?
+    var videoUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case title
@@ -36,6 +41,11 @@ class PostData: Codable {
         case selftext
         case subImage
         case imageScaledHeight
+        case secureMediaEmbed = "secure_media_embed"
+        case secureMedia = "secure_media"
+        case media
+        case url
+        case videoUrl
     }
     
 }

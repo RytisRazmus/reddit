@@ -10,4 +10,10 @@ import Foundation
 
 struct Preview: Codable {
     let images: [Image]
+    let redditVideo: RedditVideo?
+    
+    enum CodingKeys: String, CodingKey {
+        case images
+        case redditVideo = "reddit_video_preview"
+    }
 }

@@ -18,6 +18,15 @@
 		57284F2623EB5FEE005AC782 /* Children.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F2523EB5FEE005AC782 /* Children.swift */; };
 		57284F2823EC52E2005AC782 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57284F2723EC52E2005AC782 /* ErrorView.swift */; };
 		5771CE6823F1C80B00D01CA5 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5771CE6723F1C80B00D01CA5 /* NetworkError.swift */; };
+		57AC7DDB23F5A2AB00E5F850 /* RedditVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DDA23F5A2AB00E5F850 /* RedditVideo.swift */; };
+		57AC7DDD23F5A2BE00E5F850 /* SecureMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DDC23F5A2BE00E5F850 /* SecureMedia.swift */; };
+		57AC7DDF23F5A2CE00E5F850 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DDE23F5A2CE00E5F850 /* Media.swift */; };
+		57AC7DE123F5A2E100E5F850 /* SecureMediaEmbed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DE023F5A2E100E5F850 /* SecureMediaEmbed.swift */; };
+		57AC7DE323F5CF7500E5F850 /* Mp4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DE223F5CF7500E5F850 /* Mp4.swift */; };
+		57AC7DE523F5CF9000E5F850 /* Variants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DE423F5CF9000E5F850 /* Variants.swift */; };
+		57AC7DE723F5D1AD00E5F850 /* ImageVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DE623F5D1AD00E5F850 /* ImageVideoView.swift */; };
+		57AC7DE923F5D20700E5F850 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DE823F5D20700E5F850 /* VideoView.swift */; };
+		57AC7DEB23F5DBBD00E5F850 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57AC7DEA23F5DBBD00E5F850 /* PlayerView.swift */; };
 		57FE3DBF23E99E69002CEF8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FE3DBE23E99E69002CEF8B /* AppDelegate.swift */; };
 		57FE3DC123E99E69002CEF8B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FE3DC023E99E69002CEF8B /* SceneDelegate.swift */; };
 		57FE3DC323E99E69002CEF8B /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57FE3DC223E99E69002CEF8B /* PopularViewController.swift */; };
@@ -68,6 +77,15 @@
 		57284F2523EB5FEE005AC782 /* Children.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Children.swift; sourceTree = "<group>"; };
 		57284F2723EC52E2005AC782 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		5771CE6723F1C80B00D01CA5 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		57AC7DDA23F5A2AB00E5F850 /* RedditVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditVideo.swift; sourceTree = "<group>"; };
+		57AC7DDC23F5A2BE00E5F850 /* SecureMedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureMedia.swift; sourceTree = "<group>"; };
+		57AC7DDE23F5A2CE00E5F850 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
+		57AC7DE023F5A2E100E5F850 /* SecureMediaEmbed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureMediaEmbed.swift; sourceTree = "<group>"; };
+		57AC7DE223F5CF7500E5F850 /* Mp4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mp4.swift; sourceTree = "<group>"; };
+		57AC7DE423F5CF9000E5F850 /* Variants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variants.swift; sourceTree = "<group>"; };
+		57AC7DE623F5D1AD00E5F850 /* ImageVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVideoView.swift; sourceTree = "<group>"; };
+		57AC7DE823F5D20700E5F850 /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
+		57AC7DEA23F5DBBD00E5F850 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		57FE3DBB23E99E69002CEF8B /* Reddit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reddit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57FE3DBE23E99E69002CEF8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57FE3DC023E99E69002CEF8B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +229,9 @@
 				57FE3DF823E99F8F002CEF8B /* Cells */,
 				57284F1D23EB4F4B005AC782 /* PostLabel.swift */,
 				57284F2723EC52E2005AC782 /* ErrorView.swift */,
+				57AC7DE623F5D1AD00E5F850 /* ImageVideoView.swift */,
+				57AC7DE823F5D20700E5F850 /* VideoView.swift */,
+				57AC7DEA23F5DBBD00E5F850 /* PlayerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +257,12 @@
 				57284F2523EB5FEE005AC782 /* Children.swift */,
 				5771CE6723F1C80B00D01CA5 /* NetworkError.swift */,
 				571ED8F023F2FB4700715976 /* UnitConverter.swift */,
+				57AC7DDA23F5A2AB00E5F850 /* RedditVideo.swift */,
+				57AC7DDC23F5A2BE00E5F850 /* SecureMedia.swift */,
+				57AC7DDE23F5A2CE00E5F850 /* Media.swift */,
+				57AC7DE023F5A2E100E5F850 /* SecureMediaEmbed.swift */,
+				57AC7DE223F5CF7500E5F850 /* Mp4.swift */,
+				57AC7DE423F5CF9000E5F850 /* Variants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -383,12 +410,16 @@
 			files = (
 				57284F2623EB5FEE005AC782 /* Children.swift in Sources */,
 				57284F1823EAFCD2005AC782 /* DataSubscription.swift in Sources */,
+				57AC7DDF23F5A2CE00E5F850 /* Media.swift in Sources */,
 				5771CE6823F1C80B00D01CA5 /* NetworkError.swift in Sources */,
+				57AC7DE723F5D1AD00E5F850 /* ImageVideoView.swift in Sources */,
 				57284F1C23EB3213005AC782 /* DataFetcher.swift in Sources */,
 				57FE3E0D23E9AFB7002CEF8B /* ImageCache.swift in Sources */,
 				57FE3E0323E9A116002CEF8B /* UIView.swift in Sources */,
 				57284F1E23EB4F4B005AC782 /* PostLabel.swift in Sources */,
+				57AC7DE923F5D20700E5F850 /* VideoView.swift in Sources */,
 				57FE3DFA23E99F9D002CEF8B /* PostTableViewCell.swift in Sources */,
+				57AC7DE323F5CF7500E5F850 /* Mp4.swift in Sources */,
 				57FE3DFE23E9A076002CEF8B /* PostData.swift in Sources */,
 				57FE3E0723E9AEE8002CEF8B /* Post.swift in Sources */,
 				57284F2423EB5FA9005AC782 /* Source.swift in Sources */,
@@ -398,14 +429,19 @@
 				57FE3DC123E99E69002CEF8B /* SceneDelegate.swift in Sources */,
 				57FE3DF223E99E9F002CEF8B /* APIClient.swift in Sources */,
 				57FE3E0023E9A090002CEF8B /* PostsViewModel.swift in Sources */,
+				57AC7DEB23F5DBBD00E5F850 /* PlayerView.swift in Sources */,
 				57284F2223EB5F92005AC782 /* Image.swift in Sources */,
 				57FE3E0523E9A30A002CEF8B /* JSONParser.swift in Sources */,
+				57AC7DE523F5CF9000E5F850 /* Variants.swift in Sources */,
 				571ED8F323F3285A00715976 /* UIColor.swift in Sources */,
+				57AC7DDD23F5A2BE00E5F850 /* SecureMedia.swift in Sources */,
 				57FE3E0F23E9B318002CEF8B /* String.swift in Sources */,
 				57FE3E0923E9AF66002CEF8B /* ImageLoadingView.swift in Sources */,
 				57284F2023EB5F7B005AC782 /* Preview.swift in Sources */,
+				57AC7DDB23F5A2AB00E5F850 /* RedditVideo.swift in Sources */,
 				57FE3E0B23E9AF86002CEF8B /* ImageFetcher.swift in Sources */,
 				57284F2823EC52E2005AC782 /* ErrorView.swift in Sources */,
+				57AC7DE123F5A2E100E5F850 /* SecureMediaEmbed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

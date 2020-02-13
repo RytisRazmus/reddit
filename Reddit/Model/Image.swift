@@ -10,6 +10,7 @@ import UIKit
 
 struct Image: Codable {
     let source: Source
+    let variants: Variants?
 }
 
 extension Image {
