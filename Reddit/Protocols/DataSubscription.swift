@@ -9,6 +9,8 @@
 import Foundation
 
 protocol DataSubscription: AnyObject {
+    
     func dataUpdated()
     func errorThrown(error: NetworkError)
+    
 }

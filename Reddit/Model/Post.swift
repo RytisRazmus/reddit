@@ -9,9 +9,13 @@
 import Foundation
 
 struct Post: Codable {
+    
     private let kind: String
     var data: Dataa
+    
 }
 struct Dataa: Codable {
+    
     var children: [Children]
+    
 }

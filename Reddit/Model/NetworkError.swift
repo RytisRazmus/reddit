@@ -9,6 +9,7 @@
 import Foundation
 
 enum NetworkError: Error {
+    
     case badURL
     case badRequest
     case badData
@@ -26,4 +27,5 @@ enum NetworkError: Error {
             return "bad data"
         }
     }
+    
 }

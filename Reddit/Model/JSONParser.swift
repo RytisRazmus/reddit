@@ -29,8 +29,4 @@ struct JSONParser {
         return nil
     }
     
-//    func decodeSubData(d: Data) -> SubData? {
-//        let subData: SubData? = decodeData(d: d)
-//        return subData
-//    }
 }

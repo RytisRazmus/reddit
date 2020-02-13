@@ -9,5 +9,7 @@
 import Foundation
 
 protocol DataFetcher{
+    
     func fetch(urlString: String, completion: @escaping (Data?, NetworkError?) -> ())
+    
 }
